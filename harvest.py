@@ -74,11 +74,11 @@ def make_melon_type_lookup(melon_types):
     melon_type_by_code = {}
 
     for melon in melon_types:
-        melon_type_by_code[melon.code] = melon.name
+        melon_type_by_code[melon.code] = melon
 
     return melon_type_by_code
 
-print(make_melon_type_lookup(make_melon_types()))
+print("Melon Type Dict is: ", (make_melon_type_lookup(make_melon_types())))
 
 ############
 # Part 2   #
@@ -104,6 +104,9 @@ def make_melons(melon_types):
   
     melons_by_id = make_melon_type_lookup(melon_types)
 
+    print("Melon dic at musk.name is ", melons_by_id["musk"].name)
+
+
     melon1 = Melon(melons_by_id["yw"], 8, 7, 2, "Sheila")
     melon2 = Melon(melons_by_id["yw"], 3, 4, 2, "Sheila")
     melon3 = Melon(melons_by_id["yw"], 9, 8, 3, "Sheila")
@@ -123,7 +126,9 @@ def make_melons(melon_types):
 
 
 
-print(make_melons(make_melon_types()))
+object_list =  make_melons(make_melon_types())
+for melon in object_list:
+    print(melon.field)
 
 
 
@@ -141,6 +146,17 @@ def get_sellability_report(melons):
         print(f'Harvested by {melon.farmer} from Field {melon.field} {sellability}')
 
 get_sellability_report(make_melons(make_melon_types()))
+
+
+#FURTHER STUDY
+
+def create_melon_objext(file):
+
+    melon_harvest_file = open(file)
+    for line in melon_harvest_file:
+        line = line.rstrip()
+
+
 
 
 
