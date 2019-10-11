@@ -54,7 +54,7 @@ def make_melon_types():
 
     return all_melon_types
 
-make_melon_types()
+print(make_melon_types())
 
 
 def print_pairing_info(melon_types):
@@ -65,7 +65,7 @@ def print_pairing_info(melon_types):
         for pairing in melon.pairings:
             print(f' - {pairing}')
 
-#print_pairing_info(make_melon_types())
+print_pairing_info(make_melon_types())
 
 
 def make_melon_type_lookup(melon_types):
@@ -78,7 +78,7 @@ def make_melon_type_lookup(melon_types):
 
     return melon_type_by_code
 
-make_melon_type_lookup(make_melon_types())
+print(make_melon_type_lookup(make_melon_types()))
 
 ############
 # Part 2   #
@@ -101,35 +101,31 @@ class Melon(object):
 
 def make_melons(melon_types):
     """Returns a list of Melon objects."""
+  
+    melons_by_id = make_melon_type_lookup(melon_types)
 
-    melon_objects_list = []
+    melon1 = Melon(melons_by_id["yw"], 8, 7, 2, "Sheila")
+    melon2 = Melon(melons_by_id["yw"], 3, 4, 2, "Sheila")
+    melon3 = Melon(melons_by_id["yw"], 9, 8, 3, "Sheila")
+    melon4 = Melon(melons_by_id["cas"], 10, 6, 35, "Sheila")
+    melon5 = Melon(melons_by_id["cren"], 8, 9, 35, "Michael")
+    melon6 = Melon(melons_by_id["cren"], 8, 2, 35, "Michael")
+    melon7 = Melon(melons_by_id["cren"], 2, 3, 4, "Michael")
+    melon8 = Melon(melons_by_id["musk"], 6, 7, 4, "Michael")
+    melon9 = Melon(melons_by_id["yw"], 7, 10, 3, "Sheila")
 
-    # melons_by_id = make_melon_type_lookup(melon_types)
-    # melon_1 = Melon(melons_by_id['yw'], 8, 7, 2, 'Sheila')
-
-    melon1 = Melon("yw", 8, 7, 2, "Sheila")
-    melon2 = Melon("yw", 3, 4, 2, "Sheila")
-    melon3 = Melon("yw", 9, 8, 3, "Sheila")
-    melon4 = Melon("cas", 10, 6, 35, "Sheila")
-    melon5 = Melon("cren", 8, 9, 35, "Michael")
-    melon6 = Melon("cren", 8, 2, 35, "Michael")
-    melon7 = Melon("cren", 2, 3, 4, "Michael")
-    melon8 = Melon("musk", 6, 7, 4, "Michael")
-    melon9 = Melon("yw", 7, 10, 3, "Sheila")
-
-    melon_objects_list.append(melon1)
-    melon_objects_list.append(melon2)
-    melon_objects_list.append(melon3)
-    melon_objects_list.append(melon4)
-    melon_objects_list.append(melon5)
-    melon_objects_list.append(melon6)
-    melon_objects_list.append(melon7)
-    melon_objects_list.append(melon8)
-    melon_objects_list.append(melon9)
+    melon_objects_list = [melon1, melon2, 
+                          melon3, melon4, 
+                          melon5, melon6, 
+                          melon7, melon9]
 
     return melon_objects_list
 
-make_melons(make_melon_types())
+
+
+print(make_melons(make_melon_types()))
+
+
 
 
 def get_sellability_report(melons):
